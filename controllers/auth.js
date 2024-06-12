@@ -4,6 +4,10 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 
+const transactionsRoutes = require('../routes/transactions.js')
+
+
+
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
@@ -13,8 +17,9 @@ router.get('/sign-in', (req, res) => {
 });
 
 router.get('/sign-out', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
+  req.session.destroy(() => {
+    res.redirect("/");
+  });
 });
 
 router.post('/sign-up', async (req, res) => {
@@ -70,7 +75,9 @@ router.post('/sign-in', async (req, res) => {
       _id: userInDatabase._id
     };
   
-    res.redirect('/');
+    req.session.save(() => {
+      res.redirect("/transactions");
+    });
   } catch (error) {
     console.log(error);
     res.redirect('/');

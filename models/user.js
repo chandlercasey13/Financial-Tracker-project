@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const transactionModel = require('../models/transaction')
 
 const userSchema = mongoose.Schema({
   username: {
@@ -9,7 +10,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-});
+
+  transactions: [transactionModel.transactionSchema],
+    
+  });
 
 const User = mongoose.model('User', userSchema);
 
