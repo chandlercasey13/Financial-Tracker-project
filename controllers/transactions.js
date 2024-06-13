@@ -63,6 +63,20 @@ async function putEditedTransaction (req,res) {
 }
 
 
+async function deleteTransaction (req,res) {
+
+    const currentUser = await User.findById(req.session.user._id);
+    
+    currentUser.transactions.id(req.params.transactionId).deleteOne();
+   
+    await currentUser.save();
+
+    res.redirect('/transactions')
+
+
+}
+
+
 
 module.exports = {
     index,
@@ -70,5 +84,6 @@ module.exports = {
     postTransaction,
     displayuniqueTransaction,
     editTransactionPage,
-    putEditedTransaction
+    putEditedTransaction,
+    deleteTransaction
 }

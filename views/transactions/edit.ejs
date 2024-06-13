@@ -35,8 +35,13 @@
     </br>
         
 
-    <button > Submit Edit</button>
+    <button > Submit Edit</button> 
     </form>
+    <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST'>
+
+        <button>Delete This Transaction</button>
+    </form>
+   
     
     
 

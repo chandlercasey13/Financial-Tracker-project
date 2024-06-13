@@ -20,6 +20,8 @@ router.get('/:transactionId/edit', transactionCtrl.editTransactionPage)
 
 router.put('/:transactionId', transactionCtrl.putEditedTransaction)
 
+router.delete('/:transactionId', transactionCtrl.deleteTransaction)
+
 
 
 

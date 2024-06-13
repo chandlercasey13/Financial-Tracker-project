@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Transactions bruh</h1>
 
-    <a href='/transactions/new'>Add a new transaction</a>
+    <a href="/transactions/new">Add a new transaction</a>
 
+    <ul>
+      <% transactions.forEach((transaction) => {%>
 
+      <li>
+        <a href="transactions/<%=transaction._id%>"
+          ><%=transaction.amount%> , <%=transaction.company%>,
+          <%=transaction.transaction%>
+        </a>
+       
+        <a href="transactions/<%=transaction._id%>/edit">Edit</a>
+        
+      
+       
+      </li>
 
-
-<ul>
-    <% transactions.forEach((transaction) => {%>
-    
-
-    <li> <a href="transactions/<%=transaction._id%>"><%=transaction.amount%> , <%=transaction.company%>, <%=transaction.transaction%> </a> <a href="transactions/<%=transaction._id%>/edit">Edit</a></li>
-    
-    <%})%>
-
-</ul>
-
-
-</body>
+      <%})%>
+    </ul>
+  </body>
 </html>
