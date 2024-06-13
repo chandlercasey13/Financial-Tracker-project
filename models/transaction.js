@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const transactionSchema = ({
+const transactionSchema =  new mongoose.Schema({
 amount: Number,
 company: String,
 transaction: String,
@@ -17,6 +17,4 @@ category: {
 
 const Transaction = mongoose.model("Transaction", transactionSchema);
 
-module.exports = {Transaction,
-    transactionSchema
-};
+module.exports = transactionSchema;

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const transactionModel = require('../models/transaction')
+const transactionSchema  = require('../models/transaction')
 
 const userSchema = mongoose.Schema({
   username: {
@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
     required: true,
   },
 
-  transactions: [transactionModel.transactionSchema],
+  transactions: [transactionSchema],
     
   });
 

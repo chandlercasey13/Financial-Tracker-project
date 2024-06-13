@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit</h1>
+
+    <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" >
+        <label for = "amount">Amount:</label>
+        <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>">
+    
+        <label for = "company">Company:</label>
+        <input type="text" name ="company" id ="company" value="<%=transaction.company%>">
+    
+        <label for = "transaction">Transaction:</label>
+        <input type="text" name ="transaction" id ="transaction" value="<%=transaction.transaction%>">
+    
+        <label for = "category" value="<%=transaction.category%>">Category:</label>
+        <select id="category" name="category">
+            
+             <option value="Food"  <%= transaction.category === "Food" ? "selected" : "" %>
+                >Food</option>
+            <option value="Entertainment"  <%= transaction.category === "Entertainment" ? "selected" : "" %>
+                >Entertainment</option>
+            <option value="Mortgage/Rent"  <%= transaction.category === "Mortgage/Rent" ? "selected" : "" %>
+                >Mortgage/Rent</option>
+            <option value="Subscription"  <%= transaction.category=== "Subscription" ? "selected" : "" %>
+                >Subscription</option>
+            
+
+        </select>
+    </br>
+        
+
+    <button > Submit Edit</button>
+    </form>
+    
+    
+
+
+</body>
+</html>

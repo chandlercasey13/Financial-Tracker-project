@@ -5,13 +5,20 @@ const transactionCtrl = require('../controllers/transactions')
 
 router.get('/', transactionCtrl.index)
 
-router.post('/', transactionCtrl.postTransaction)
+router.post('/create', transactionCtrl.postTransaction)
 
 
 router.get('/new', transactionCtrl.newTransaction)
 
+
+
 router.get('/:transactionId', transactionCtrl.displayuniqueTransaction)
 
+
+
+router.get('/:transactionId/edit', transactionCtrl.editTransactionPage)
+
+router.put('/:transactionId', transactionCtrl.putEditedTransaction)
 
 
 

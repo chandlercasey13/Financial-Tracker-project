@@ -17,7 +17,7 @@
     <% transactions.forEach((transaction) => {%>
     
 
-    <li> <a href="transactions/<%=transaction._id%>"><%=transaction.amount%> , <%=transaction.company%>, <%=transaction.transaction%> </a> </li>
+    <li> <a href="transactions/<%=transaction._id%>"><%=transaction.amount%> , <%=transaction.company%>, <%=transaction.transaction%> </a> <a href="transactions/<%=transaction._id%>/edit">Edit</a></li>
     
     <%})%>
 
