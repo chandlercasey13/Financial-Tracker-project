@@ -7,9 +7,14 @@ const transactionSchema = require('../models/transaction');
 async function index (req,res){
     const currentUser = await User.findById(req.session.user._id)
 
+const now = new Date();
+
+const days = now.getDate();
+const hours = now.getHours();
+console.log(hours)
     
 
-    res.render('transactions/index.ejs', {transactions : currentUser.transactions })
+    res.render('transactions/index.ejs', {transactions : currentUser.transactions, now})
 }
 
 
@@ -86,4 +91,5 @@ module.exports = {
     editTransactionPage,
     putEditedTransaction,
     deleteTransaction
+
 }

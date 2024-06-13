@@ -6,20 +6,32 @@
     <title>Document</title>
 </head>
 <body>
+
+
+    <%- include('../../partials/navbar.ejs') %>
     <h1>Add a new transaction</h1>
 
 
 
 
     <form action = '/transactions/create' method ="POST" id ='transaction-form'>
-    <label for = "amount">Amount:</label>
-    <input type="text" name ="amount" id ="amount">
+        <label for = "transaction">Transaction:</label>
+        <select id ='transaction' name ='transaction'>
+         <option value = '+'>+</option>
+         <option value = '-'>-</option>
+ 
+ 
+ 
+        </select>
+         
+   
+        <label for = "amount">Amount:</label>
+    <input type="text" name ="amount" id ="amount" required>
 
     <label for = "company">Company:</label>
     <input type="text" name ="company" id ="company">
 
-    <label for = "transaction">Transaction:</label>
-    <input type="text" name ="transaction" id ="transaction">
+  
 
     <label for = "category">Category:</label>
     <select id="category" name="category">

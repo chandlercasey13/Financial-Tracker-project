@@ -6,17 +6,29 @@
     <title>Document</title>
 </head>
 <body>
+
+
+    <%- include('../../partials/navbar.ejs') %>
     <h1>Edit</h1>
 
     <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" >
+        <label for = "transaction">Transaction:</label>
+       <select id ='transaction' name ='transaction'>
+        <option value = '+'>+</option>
+        <option value = '-'>-</option>
+
+
+
+       </select>
+        
+        
         <label for = "amount">Amount:</label>
-        <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>">
+        <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>" required>
     
         <label for = "company">Company:</label>
         <input type="text" name ="company" id ="company" value="<%=transaction.company%>">
     
-        <label for = "transaction">Transaction:</label>
-        <input type="text" name ="transaction" id ="transaction" value="<%=transaction.transaction%>">
+       
     
         <label for = "category" value="<%=transaction.category%>">Category:</label>
         <select id="category" name="category">
