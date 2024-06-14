@@ -16,14 +16,15 @@
 
     <%- include('../../partials/navbar.ejs') %>
    
-    <div class = 'panel'>  
+    <div class = 'edit-panel'>  
    
     <h1>Add a new transaction</h1>
 
 
 
 
-    <form action = '/transactions/create' method ="POST" id ='transaction-form'>
+    <form action = '/transactions/create' method ="POST" id = 'new-trans-form'>
+        <div class ='category-input'>
         <label for = "transaction">Transaction:</label>
         <select id ='transaction' name ='transaction'>
          <option value = '+'>+</option>
@@ -32,16 +33,18 @@
  
  
         </select>
+    </div>
          
-   
+    <div class="text-input">
         <label for = "amount">Amount:</label>
     <input type="text" name ="amount" id ="amount" required>
-
+</div>
+<div class="text-input">
     <label for = "company">Company:</label>
     <input type="text" name ="company" id ="company" required>
-
+</div>
   
-
+<div class ='category-input'>
     <label for = "category">Category:</label>
     <select id="category" name="category">
         <option value="Food">Food</option>
@@ -50,11 +53,11 @@
         <option value="Subscription">Subscription</option>
         
     </select>
-</br>
+</div>
     
 </form>
 
-<button form = 'transaction-form'> Submit Transaction</button>
+<button form ='new-trans-form' id="submit-edit"> Submit Transaction</button>
 
 </div>  
 

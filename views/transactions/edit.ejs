@@ -15,7 +15,7 @@
 
 
    
-    <div class = 'panel' id = 'edit'>  
+    <div class = 'edit-panel'>  
 
         <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST' id = 'form-delete'>
 
@@ -27,25 +27,27 @@
     <h1>Edit</h1>
 
     <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" id = 'edit-form' >
+        <div class ='category-input'>
+       
         <label for = "transaction">Transaction:</label>
        <select id ='transaction' name ='transaction'>
         <option value = '+'>+</option>
         <option value = '-'>-</option>
-
-
+    
+   
 
        </select>
-        
-        <div class= 'input-box-edit'>
+    </div>
+        <div class="text-input">
         <label for = "amount">Amount:</label>
         <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>" required>
     </div>
-    <div class= 'input-box-edit'>
+    <div class="text-input">
         <label for = "company">Company:</label>
         <input type="text" name ="company" id ="company" value="<%=transaction.company%>">
     </div>
        
-    
+    <div class ='category-input'>
         <label for = "category" value="<%=transaction.category%>">Category:</label>
         <select id="category" name="category">
             
@@ -60,17 +62,16 @@
             
 
         </select>
-    </br>
-        
-
+    
+    </div>
     
     </form>
 
 
     <button form = 'edit-form' id="submit-edit"> Submit Edit</button> 
     
-    </div>
     
+    </div>
     
 
 
