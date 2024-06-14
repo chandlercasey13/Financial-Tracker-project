@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id = "edit-body">
 
 
-    <%- include('../../partials/navbar.ejs') %>
+   
+    <div class = 'panel' id = 'edit'>  
+
+        <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST' id = 'form-delete'>
+
+            <button id ="delete">Delete This Transaction</button>
+        </form>
+
+
+
     <h1>Edit</h1>
 
-    <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" >
+    <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" id = 'edit-form' >
         <label for = "transaction">Transaction:</label>
        <select id ='transaction' name ='transaction'>
         <option value = '+'>+</option>
@@ -21,13 +36,14 @@
 
        </select>
         
-        
+        <div class= 'input-box-edit'>
         <label for = "amount">Amount:</label>
         <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>" required>
-    
+    </div>
+    <div class= 'input-box-edit'>
         <label for = "company">Company:</label>
         <input type="text" name ="company" id ="company" value="<%=transaction.company%>">
-    
+    </div>
        
     
         <label for = "category" value="<%=transaction.category%>">Category:</label>
@@ -47,13 +63,13 @@
     </br>
         
 
-    <button > Submit Edit</button> 
+    
     </form>
-    <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST'>
 
-        <button>Delete This Transaction</button>
-    </form>
-   
+
+    <button form = 'edit-form' id="submit-edit"> Submit Edit</button> 
+    
+    </div>
     
     
 

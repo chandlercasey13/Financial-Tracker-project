@@ -6,31 +6,84 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
 
+ <body id="transaction-body">
 
-
-    <h1>Transactions</h1>
-
-    <a href="/transactions/new">Add a new transaction</a>
-
-    <ul>
-      <% transactions.forEach((transaction) => {%>
-
-      <li>
-        
-            <%= now.getMonth()%>/<%=now.getDate();%>  <%=transaction.transaction%> $<%=transaction.amount%> , <%=transaction.company%>,
-          
-        
-       
-        <a href="transactions/<%=transaction._id%>/edit">Edit</a>
-        
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
       
-       
-      </li>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
 
-      <%})%>
-    </ul>
+
+
+
+
+    <section id="trans-button">
+        <a href="/transactions/new"> Add Transaction</a>
+      </section>
+
+
+    <div class="transactions">
+      
+
+      <ol>
+        <% transactions.forEach((transaction) => {%>
+
+        <li value="">
+          <div id="transaction-date">
+            <%= now.getMonth()%>/<%=now.getDate();%>
+          </div>
+          
+          <% if (transaction.transaction=='-'){%>
+       <div id="transaction-negative"> $<%=transaction.amount%> </div>
+        
+        <%} else {%>
+            <div id="transaction-positive"> $<%=transaction.amount%> </div>
+            <%}%>
+
+          
+          <div id ='transaction-company'>
+          <%=transaction.company%>
+        </div>
+
+        <div id ="edit-button">
+          <a href="transactions/<%=transaction._id%>/edit">Edit</a>
+        </div>
+        </li>
+
+        <%})%>
+      </ol>
+    </div>
   </body>
 </html>
