@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Transaction</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body id = "edit-body">
 
+<header> <nav> <%- include('../../partials/navbar.ejs') %></nav></header>
+
+<body >
+  <div class = 'form-body'>
 
    
     <div class = 'edit-panel'>  
 
-        <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST' id = 'form-delete'>
 
-            <button id ="delete">Delete This Transaction</button>
+        
+        <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST' id = 'form-delete'>
+            <h1>Edit</h1>
+            <button id ="delete"><i class='bx bx-trash bx-lg' ></i> </button>
         </form>
 
 
 
-    <h1>Edit</h1>
+    
 
     <form action = '/transactions/<%= transaction._id %>?_method=PUT' method ="POST" id = 'edit-form' >
         <div class ='category-input'>
        
         <label for = "transaction">Transaction:</label>
        <select id ='transaction' name ='transaction'>
-        <option value = '+'>+</option>
         <option value = '-'>-</option>
+        <option value = '+'>+</option>
+        
     
    
 
@@ -48,7 +55,7 @@
     </div>
        
     <div class ='category-input'>
-        <label for = "category" value="<%=transaction.category%>">Category:</label>
+        <label for = "category" value="<%=transaction.category%>">Category:</label> 
         <select id="category" name="category">
             
              <option value="Food"  <%= transaction.category === "Food" ? "selected" : "" %>
@@ -74,6 +81,6 @@
     </div>
     
 
-
+</div>
 </body>
 </html>
