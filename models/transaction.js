@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 
 const transactionSchema =  new mongoose.Schema({
-amount: Number,
+    transaction: String,
+    amount: Number,
 company: String,
-transaction: String,
+details: String,
+
 
 category: {
    type:String,
-    enum: ['Food','Entertainment','Rent']
+    enum: ['Food','Entertainment','Housing', "Subscriptions", "Utilities", "Health", "Debt", "Savings" ]
 
 },
 
