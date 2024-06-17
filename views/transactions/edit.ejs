@@ -47,7 +47,7 @@
     </div>
         <div class="text-input">
         <label for = "amount">Amount:</label>
-        <input type="text" name ="amount" id ="amount" value="<%=transaction.amount%>" required>
+        <input type="number" name ="amount" id ="amount" value="<%=transaction.amount%>" required>
     </div>
     <div class="text-input">
         <label for = "company">Company:</label>
@@ -62,16 +62,23 @@
                 >Food</option>
             <option value="Entertainment"  <%= transaction.category === "Entertainment" ? "selected" : "" %>
                 >Entertainment</option>
-            <option value="Mortgage/Rent"  <%= transaction.category === "Mortgage/Rent" ? "selected" : "" %>
-                >Mortgage/Rent</option>
-            <option value="Subscription"  <%= transaction.category=== "Subscription" ? "selected" : "" %>
+            <option value="Housing"  <%= transaction.category === "Housing" ? "selected" : "" %>
+                >Housing</option>
+            <option value="Subscriptions"  <%= transaction.category=== "Subscriptions" ? "selected" : "" %>
                 >Subscription</option>
+                <option value="Utilities" <%= transaction.category=== "Utilities" ? "selected" : "" %>>Utilities</option>
+        <option value="Health" <%= transaction.category=== "Health" ? "selected" : "" %>>Health</option>
+        <option value="Debt" <%= transaction.category=== "Debt" ? "selected" : "" %>>Debt</option>
+        <option value="Savings" <%= transaction.category=== "Savings" ? "selected" : "" %>>Savings</option>
             
 
         </select>
     
     </div>
-    
+    <div id = 'details-text-input'>
+        <label for = 'details'> Details: </label>
+        <input type="text-area" name ="details" id ="details" value="<%=transaction.details%>">
+    </div>
     </form>
 
 

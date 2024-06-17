@@ -12,38 +12,72 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
+  <nav id = 'trans-nav'>
+   
+    <% if(user) { %>
+      
+     
+      <a href="/auth/sign-out">Sign Out</a>
+    <% } else { %>
+      <a href="/auth/sign-in">Sign In</a>
+      <a href="/auth/sign-up">Sign Up</a>
+    <% } %>
+  </nav>
+  
 
  <body id="transaction-body">
 
+
+
+  <div id="chart">
     <div>
         <canvas id="myChart"></canvas>
       </div>
-      
+    </div>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       
       <script>
+
+        
+const data= ([<%=chartCategories.food%>, <%=chartCategories.entertainment%>, <%=chartCategories.housing%>, <%=chartCategories.subscriptions%>, <%=chartCategories.utilities%>, <%=chartCategories.health%>, <%=chartCategories.debt%>]);
+
+
+        
         const ctx = document.getElementById('myChart');
       
         new Chart(ctx, {
-          type: 'doughnut',
+          type: 'bar',
           data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Red', 'Entertainment', 'Housing', 'Subscriptions', 'Utilities', 'Health', 'Debt'],
             datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              label: '$',
+              data: data,
               borderWidth: 1,
               
             }]
           },
           options: {
-            
+            plugins: {
+              
+              legend: {
+                position: false,
+                maxHeight: 500,
+              },
+              }
+              
+
             }
-          }
+            }
+          
         );
+
+       
       </script>
 
 
+<!-- <%=chartCategories.food%> -->
 
 
 
@@ -61,8 +95,11 @@
           <div>Company</div>
             <div> Category</div> 
             
-            <div id = 'legend-details'>Details</div>
+            
+            <div id = 'legend-edit'>Details</div>
+            <div>Edit/Delete</div>
           </div>
+          
         
      
 
@@ -93,9 +130,19 @@
 
         </div>
 
-        <div id ="edit-button">
+        <div id="transaction-details">
+          <%=transaction.details%>
+        </div>
+
+       <div id="edit-buttons">
+        <div id ="edit-link">
           <a href="transactions/<%=transaction._id%>/edit">Edit</a>
         </div>
+        <form action ='/transactions/<%= transaction._id %>?_method=DELETE' method = 'POST' >
+          <button id ="delete"><i class='bx bx-trash bx-sm' ></i> </button>
+        </div>
+
+        </form>
         </li>
 
         <%})%>

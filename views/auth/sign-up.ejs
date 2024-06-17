@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Create a new account!</h1>
-  <form action="/auth/sign-up" method="POST">
+
+  <div id="sign-up-panel">
+    <div>
+  <h1>Create  new account!</h1>
+</div>
+  <form action="/auth/sign-up" method="POST" id="sign-up-form">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
     <label for="password">Password:</label>
@@ -20,7 +25,10 @@
       id="confirmPassword"
       required 
     />
-    <button type="submit">Sign up</button>
+    <div>
+    <button type="submit" class="button">Sign up</button>
+  </div>
   </form>
+</div>
 </body>
 </html>
