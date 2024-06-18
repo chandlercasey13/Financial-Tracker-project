@@ -1,11 +1,11 @@
-![alt text](image.png)
+![alt text](image-1.png)
 
 #  Wallet Wise : Monthly Expense Tracker
 
 ## A monthly insights tracker that categorizes your transactions to give you insight on your spending habits
 
 **Getting Started:** 
-Visit this [link](https://opengameart.org/sites/default/files/Dirt%20Texture%202.jpg)!
+Visit this [link](https://monthly-expense-tracker-2324e228fac8.herokuapp.com/)!
 
 **[Planning Materials](https://trello.com/b/x5ueIHkt/crud-appproject)** 
 

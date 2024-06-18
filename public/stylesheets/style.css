@@ -265,6 +265,7 @@ body .failed {
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
   height: 5vh;
   margin-bottom: 0.5vh;
   border-bottom: 2px solid gray;
