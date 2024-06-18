@@ -12,11 +12,13 @@ router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
 
-router.get('/sign-in', (req, res) => {
+router.get('/sign-in', async (req, res) => {
+ 
   res.render('auth/sign-in.ejs');
 });
 
 router.get('/sign-out', (req, res) => {
+  
   req.session.destroy(() => {
     res.redirect("/");
   });
@@ -54,8 +56,11 @@ router.post('/sign-in', async (req, res) => {
   try {
     // First, get the user from the database
     const userInDatabase = await User.findOne({ username: req.body.username });
+    let correctUser = true;
+
     if (!userInDatabase) {
-      return res.send('Login failed. Please try again.');
+      correctUser = false;
+      return res.render('auth/failpass.ejs');
     }
   
     // There is a user! Time to test their password with bcrypt
@@ -64,7 +69,8 @@ router.post('/sign-in', async (req, res) => {
       userInDatabase.password
     );
     if (!validPassword) {
-      return res.send('Login failed. Please try again.');
+      let correctUser = false;
+      return res.render('auth/failpass.ejs');
     }
   
     // There is a user AND they had the correct password. Time to make a session!

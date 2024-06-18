@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Transactions</title>
 
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +50,7 @@ const data= ([<%=chartCategories.food%>, <%=chartCategories.entertainment%>, <%=
         new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: ['Red', 'Entertainment', 'Housing', 'Subscriptions', 'Utilities', 'Health', 'Debt'],
+            labels: ['Food', 'Entertainment', 'Housing', 'Subscriptions', 'Utilities', 'Health', 'Debt'],
             datasets: [{
               label: '$',
               data: data,
@@ -60,6 +60,13 @@ const data= ([<%=chartCategories.food%>, <%=chartCategories.entertainment%>, <%=
           },
           options: {
             plugins: {
+              title: {
+                display: true,
+                text: 'Monthly Spending',
+                font: {
+                  size: 25
+                }
+              },
               
               legend: {
                 position: false,
@@ -131,7 +138,7 @@ const data= ([<%=chartCategories.food%>, <%=chartCategories.entertainment%>, <%=
         </div>
 
         <div id="transaction-details">
-          <%=transaction.details%>
+          <p><%=transaction.details%></p>
         </div>
 
        <div id="edit-buttons">

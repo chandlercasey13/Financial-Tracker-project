@@ -4,69 +4,64 @@ const User = require("../models/user");
 const transactionSchema = require("../models/transaction");
 
 async function index(req, res) {
-  const currentUser = await User.findById(req.session.user._id);
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-  const now = new Date();
+    const now = new Date();
 
-  const days = now.getDate();
-  const hours = now.getHours();
+    const days = now.getDate();
+    const hours = now.getHours();
 
-function categoriesAdded() {
-  const addCategory = 
-  {food: 0,
-  entertainment: 0,
-  housing: 0,
-  subscriptions: 0,
-  utilities: 0,
-  health: 0,
-  debt: 0,
-  savings: 0,
+    function categoriesAdded() {
+      const addCategory = {
+        food: 0,
+        entertainment: 0,
+        housing: 0,
+        subscriptions: 0,
+        utilities: 0,
+        health: 0,
+        debt: 0,
+        savings: 0,
+      };
+
+      currentUser.transactions.forEach((transaction) => {
+        if (transaction.category === "Food") {
+          addCategory.food += transaction.amount;
+        }
+        if (transaction.category === "Entertainment") {
+          addCategory.entertainment += transaction.amount;
+        }
+        if (transaction.category === "Housing") {
+          addCategory.housing += transaction.amount;
+        }
+        if (transaction.category === "Subscriptions") {
+          addCategory.subscriptions += transaction.amount;
+        }
+        if (transaction.category === "Utilities") {
+          addCategory.utilities += transaction.amount;
+        }
+        if (transaction.category === "Health") {
+          addCategory.health += transaction.amount;
+        }
+        if (transaction.category === "Debt") {
+          addCategory.debt += transaction.amount;
+        }
+        if (transaction.category === "Savings") {
+          addCategory.savings += transaction.amount;
+        }
+      });
+
+      return addCategory;
+    }
+
+    res.render("transactions/index.ejs", {
+      chartCategories: categoriesAdded(),
+      transactions: currentUser.transactions,
+      now,
+    });
+  } catch {
+    res.redirect("/auth/sign-in");
   }
-
- currentUser.transactions.forEach((transaction) => {
-  
-  
-  
-
-  if(transaction.category === "Food") {
-    addCategory.food += transaction.amount;
-  }
-  if(transaction.category === "Entertainment") {
-    addCategory.entertainment += transaction.amount
-  }
-  if(transaction.category === "Housing") {
-    addCategory.housing += transaction.amount
-  }
-  if(transaction.category === "Subscriptions") {
-    addCategory.subscriptions += transaction.amount
-  }
-  if(transaction.category === "Utilities") {
-    addCategory.utilities += transaction.amount
-  }
-  if(transaction.category === "Health") {
-    addCategory.health += transaction.amount
-  }
-  if(transaction.category === "Debt") {
-    addCategory.debt += transaction.amount
-  }
-  if(transaction.category === "Savings") {
-    addCategory.savings += transaction.amount
- }
-  
-
- 
- 
-})
-
-return addCategory
-}
-
-
-  res.render("transactions/index.ejs", {
-    chartCategories: categoriesAdded(),
-    transactions: currentUser.transactions,
-    now,
-  });
 }
 
 async function newTransaction(req, res) {
