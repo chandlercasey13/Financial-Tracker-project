@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+body {
+  background-color: #7cc1f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.Title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+  width: 700px;
+  padding-bottom: 150px;
+  margin-top: 5%;
+}
+
+#Title {
+  font-size: 80px;
+}
+
+#wallet {
+  color: white;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+}
+
+.panel {
+  background-color: white;
+
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin-bottom: 10%;
+
+  width: 420px;
+  max-height: 55vh;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.panel p {
+  margin-left: 40px;
+}
+
+#sign-in-form {
+  width: 100%;
+  height: 80%;
+}
+
+.panel h1 {
+  font-size: 36px;
+  text-align: start;
+}
+
+.panel input {
+  display: flex;
+  align-items: center;
+}
+
+.panel .input-box {
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+  position: relative;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid #c7e9ff;
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input:hover {
+  background-color: #e0f3ff;
+}
+
+.input-box input::placeholder {
+  color: black;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  font-size: 20px;
+}
+
+.button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #062c94;
+  color: white;
+}
+#fail-nav {
+  font-size: 30px;
+  color: white;
+  display: flex;
+  justify-content: start;
+  text-align: center;
+  padding: 10px 15px;
+  height: 5vh;
+}
+
+#fail-nav a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+body .failed {
+  background-color: blue;
+  display: flex;
+  justify-content: start;
+  align-self: center;
+}
+.failed div {
+  height: 95vh;
+  width: 100vw;
+}
+
+.failed h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+
+#register-account {
+  display: flex;
+}
+
+#register-account p {
+  margin-right: 5px;
+}
+
+#sign-up-panel {
+  background-color: white;
+  padding: 30px;
+  height: 60vh;
+  width: 25vw;
+  border-radius: 40px;
+  justify-content: space-evenly;
+}
+
+#sign-up-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
+}
+#sign-up-panel input {
+  height: 5vh;
+  margin-top: 0;
+}
+
+#sign-up-panel input:hover {
+  background-color: #e0f3ff;
+}
+#sign-up-panel h1 {
+  margin-bottom: 30px;
+}
+
+#sign-up-panel button {
+  margin-top: 20px;
+}
+
+#trans-nav {
+  display: flex;
+  justify-content: end;
+  height: 0vh;
+  margin-top: 20px;
+}
+
+#transaction-body {
+  display: flex;
+  justify-content: center;
+}
+
+#chart {
+}
+
+#myChart {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-width: 55vw;
+  max-height: 45vh;
+  padding: 0px 20px 20px 20px;
+  border-radius: 20px;
+}
+
+.transactions {
+  background-color: white;
+  border-radius: 20px;
+  min-width: 75vw;
+  height: 45vh;
+  margin-bottom: 1vh;
+  padding: 30px;
+  padding-top: 0;
+  overflow: auto;
+  box-shadow: -10px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.transactions section {
+  height: 100px;
+}
+
+#trans-button {
+  width: 100%;
+
+  background-color: rgba(79, 80, 82, 0);
+
+  cursor: pointer;
+
+  font-size: 30px;
+  outline: none;
+  border: none;
+  color: white;
+}
+#new-trans-anchor {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(79, 80, 82, 0.5);
+  border-radius: 15px;
+  text-decoration: none;
+  min-width: 75vw;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#new-trans-anchor:hover {
+  background-color: rgba(79, 80, 82, 0.8);
+}
+
+#transaction-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  margin-bottom: 0.5vh;
+  border-bottom: 2px solid gray;
+  font-weight: 600;
+}
+
+#transaction-legend div {
+  width: 8.5vw;
+  padding-top: 10px;
+}
+
+#legend-details {
+  padding-right: 10px;
+  text-align: end;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: black;
+  border-bottom: 1px solid gray;
+  min-height: 5vh;
+}
+
+li div {
+  width: 8.5vw;
+}
+
+li #edit-link {
+  margin-right: 30px;
+  text-align: end;
+}
+
+li #edit-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li #transaction-positive {
+  color: green;
+}
+li #transaction-negative {
+  color: red;
+}
+
+#transaction-details {
+  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  resize: vertical;
+  min-height: 4vh;
+  max-height: 8vh;
+  min-width: 5vw;
+  max-width: 10vw;
+
+  padding: 15px 10px 0px 0px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+li button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ff6161;
+
+  text-align: end;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 5vh;
+  width: 100vw;
+}
+
+nav a {
+  width: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.bx-home {
+  color: white;
+}
+
+.form-body {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#new-trans-h1 {
+  height: 10%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Edit Page and Add Page */
+.edit-panel {
+  width: 40vw;
+  background-color: white;
+
+  border-radius: 10px;
+  padding: 15px 25px;
+  height: 75vh;
+
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.edit-panel #new-trans-form {
+  height: 75%;
+}
+
+.edit-panel #new-trans-form div {
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+}
+
+#form-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+
+#form-delete button {
+  border: none;
+  height: 10vh;
+  width: 5vw;
+  border-radius: 30px;
+  color: white;
+  background-color: transparent;
+  font-size: 0.75em;
+  padding: 15px 15px;
+  text-align: center;
+  margin-right: -10px;
+  cursor: pointer;
+}
+
+.bx-trash {
+  color: #ff6161;
+}
+
+.bx-trash:hover {
+  color: #fa1e1e;
+}
+
+.edit-panel h1 {
+  height: 1em;
+
+  font-weight: 800;
+}
+
+.edit-panel label {
+  display: block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#edit-form {
+  height: 65vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.text-input {
+  width: 100%;
+  height: 15%;
+}
+
+input {
+  width: 100%;
+  height: 60%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid #c7e9ff;
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+  margin-top: 10px;
+}
+
+select {
+  height: 2vh;
+}
+
+.category-input {
+  height: 15%;
+  width: 100%;
+}
+
+.category-input select {
+  display: flex;
+  text-align: start;
+  height: 50%;
+  width: 20%;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+  border: 2px solid #c7e9ff;
+  border-radius: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#details-text-input {
+  height: 35%;
+  width: 100%;
+}
+
+#details {
+  height: 80%;
+  width: 100%;
+  padding: 0px 0px 105px 20px;
+}
+
+#submit-edit {
+  margin-top: 10px;
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #062c94;
+  color: white;
+  margin-bottom: 0.5vh;
+}

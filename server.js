@@ -7,8 +7,13 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require("connect-mongo");
+const isSignedIn = require('./middleware/is-signed-in.js');
+const passUserToView = require('./middleware/pass-user-to-view.js');
+const path = require('path')
+
 
 const authController = require('./controllers/auth.js');
+const transController = require('./controllers/transactions.js')
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -21,6 +26,9 @@ mongoose.connection.on('connected', () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -33,15 +41,22 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.render('index.ejs', {
+  if (req.session.user) {
+    res.redirect('/transactions');
+  } else {
+  res.render('auth/sign-in.ejs', {
     user: req.session.user,
   });
+}
 });
 
+
+app.use(passUserToView);
+app.use('/auth', authController);
+app.use(isSignedIn);
 app.use(('/transactions'), require('./routes/transactions.js'))
 
 
-app.use('/auth', authController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

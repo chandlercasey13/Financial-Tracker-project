@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const transactionSchema  = require('../models/transaction')
+const mongoose = require("mongoose");
+const transactionSchema = require("../models/transaction");
 
 const userSchema = mongoose.Schema({
   username: {
@@ -12,9 +12,8 @@ const userSchema = mongoose.Schema({
   },
 
   transactions: [transactionSchema],
-    
-  });
+});
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
